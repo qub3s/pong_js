@@ -61,14 +61,14 @@
             vy *= -1;
         }
 
-        if (y > h-ballsize-bottomspace){
+        if (vy >= 0 && y > h-ballsize-bottomspace && x > ballpos - 50 && x < ballpos + 50){
             vy *= -1;
-            if(x > ballpos - 60 && x < ballpos + 60){
-                s = s + 1;
-            }
-            else{
-                s = 0;
-            }
+            s = s + 1;
+        }
+        else if( y > h-ballsize ){
+            s = 0;
+            vx = 0;
+            vy = 0;
         }
 
         return [vx,vy,s];
